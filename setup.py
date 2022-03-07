@@ -18,7 +18,6 @@ if os.path.isfile(requirements_path):
         for line in fp.readlines():
             install_requires.append(line.strip())
 
-print(install_requires)
 
 
 if os.name =='nt' :
