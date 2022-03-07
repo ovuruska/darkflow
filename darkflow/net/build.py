@@ -8,7 +8,7 @@ from .framework import create_framework
 from ..dark.darknet import Darknet
 import json
 import os
-import tf.compat.v1.train as tf_train
+import tensorflow.compat.v1.train as tf_train
 
 class TFNet(object):
 
