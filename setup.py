@@ -3,19 +3,23 @@ from setuptools.extension import Extension
 from Cython.Build import cythonize
 import numpy
 import os
-import imp
+from pydoc import importfile
 
 
 dirname = os.path.dirname(os.path.realpath(__file__))
+
+VERSION = importfile(os.path.join(dirname, 'darkflow', 'version.py'))
+VERSION = VERSION.__version__
+
 requirements_path = os.path.join(dirname,"requirements.txt")
 install_requires = [] 
 if os.path.isfile(requirements_path):
-    with open(requirements_path) as f:
-        install_requires = f.read().splitlines()
+    with open(requirements_path) as fp:
+        for line in fp.readlines():
+            install_requires.append(line.strip())
 
+print(install_requires)
 
-VERSION = imp.load_source('version', os.path.join('.', 'darkflow', 'version.py'))
-VERSION = VERSION.__version__
 
 if os.name =='nt' :
     ext_modules=[
