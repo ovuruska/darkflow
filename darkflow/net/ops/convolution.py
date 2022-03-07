@@ -24,7 +24,7 @@ class reorg(BaseOp):
     def forward(self):
         inp = self.inp.out
         s = self.lay.stride
-        self.out = tf.extract_image_patches(
+        self.out = tf.compat.v1.extract_image_patches(
             inp, [1,s,s,1], [1,s,s,1], [1,1,1,1], 'VALID')
 
     def speak(self):
