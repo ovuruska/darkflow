@@ -44,5 +44,6 @@ ckpt/*
 
 #pytest cache
 .cache/
+__pycache__
 
 dist/
