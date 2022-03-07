@@ -8,18 +8,19 @@ from .framework import create_framework
 from ..dark.darknet import Darknet
 import json
 import os
+import tf.compat.v1.train as tf_train
 
 class TFNet(object):
 
 	_TRAINER = dict({
-		'rmsprop': tf.train.RMSPropOptimizer,
-		'adadelta': tf.train.AdadeltaOptimizer,
-		'adagrad': tf.train.AdagradOptimizer,
-		'adagradDA': tf.train.AdagradDAOptimizer,
-		'momentum': tf.train.MomentumOptimizer,
-		'adam': tf.train.AdamOptimizer,
-		'ftrl': tf.train.FtrlOptimizer,
-		'sgd': tf.train.GradientDescentOptimizer
+		'rmsprop': tf_train.RMSPropOptimizer,
+		'adadelta': tf_train.AdadeltaOptimizer,
+		'adagrad': tf_train.AdagradOptimizer,
+		'adagradDA': tf_train.AdagradDAOptimizer,
+		'momentum': tf_train.MomentumOptimizer,
+		'adam': tf_train.AdamOptimizer,
+		'ftrl': tf_train.FtrlOptimizer,
+		'sgd': tf_train.GradientDescentOptimizer
 	})
 
 	# imported methods
